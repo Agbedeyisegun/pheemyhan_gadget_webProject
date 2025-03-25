@@ -1,6 +1,6 @@
 const request = require('supertest');
 const app = require('../../src/app'); 
-const pool = require('src/config/database');
+const pool = require('../../src/config/database');
 
 describe('User API', () => {
   beforeAll(async () => {
