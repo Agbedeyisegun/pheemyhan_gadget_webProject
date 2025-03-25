@@ -1,9 +1,9 @@
 const request = require('supertest');
-const app = require('@/app'); // Using alias
+const app = require('src/app'); // Using alias
 const mockPaystack = require('./mocks/paystack');
 
 // Mock the entire paystack module
-jest.mock('@/services/paystack', () => mockPaystack);
+jest.mock('src/services/paystack', () => mockPaystack);
 
 describe('Payment API', () => {
   it('should initialize payment', async () => {

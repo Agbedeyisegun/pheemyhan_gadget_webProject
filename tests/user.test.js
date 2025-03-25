@@ -1,6 +1,6 @@
 const request = require('supertest');
-const app = require('@/app'); // Using alias
-const pool = require('@/config/database');
+const app = require('../../src/services/paystack'); // Using alias
+const pool = require('src/config/database');
 
 describe('User API', () => {
   beforeAll(async () => {
