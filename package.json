@@ -270,7 +270,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "jests"
+      "test": "jest --passWithNoTests" 
   },
   "author": "Agbedeyi Segun Olatunde",
   "license": "ISC"
