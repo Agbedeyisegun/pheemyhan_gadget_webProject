@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pheemyhan Gadget - Premium Tech Store</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6a11cb;
+            --secondary: #2575fc;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+        }
+        .navbar {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            color: white;
+            padding: 100px 0;
+        }
+        .product-card {
+            transition: transform 0.3s;
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        .product-img {
+            height: 200px;
+            object-fit: contain;
+            background: #f8f9fa;
+            padding: 20px;
+        }
+        .badge-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        .cart-item {
+            border-bottom: 1px solid #eee;
+            padding: 10px 0;
+        }
+        .footer {
+            background: var(--dark);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="fas fa-mobile-alt me-2"></i>Pheemyhan Gadget
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#products">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link position-relative" href="#" data-bs-toggle="modal" data-bs-target="#cartModal">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span id="cartCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4">Premium Gadgets at Unbeatable Prices</h1>
+            <p class="lead mb-5">Discover the latest smartphones, laptops, and accessories from top brands</p>
+            <a href="#products" class="btn btn-light btn-lg px-4 me-2">Shop Now</a>
+            <a href="#featured" class="btn btn-outline-light btn-lg px-4">Featured</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-5">
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <h2>Our Products</h2>
+                <p class="text-muted">Browse our collection of high-end devices</p>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Product 1 -->
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="product-card card h-100">
+                        <span class="badge bg-success badge-tag">In Stock</span>
+                        <img src="https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1067&q=80" class="product-img card-img-top" alt="iPhone 14 Pro">
+                        <div class="card-body">
+                            <h5 class="card-title">iPhone 14 Pro Max</h5>
+                            <p class="text-muted">6.7" Super Retina XDR display</p>
+                            <h4 class="text-primary">₦850,000</h4>
+                            <button class="btn btn-primary w-100 add-to-cart" data-id="1" data-name="iPhone 14 Pro Max" data-price="850000">
+                                <i class="fas fa-cart-plus me-2"></i>Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="product-card card h-100">
+                        <span class="badge bg-success badge-tag">In Stock</span>
+                        <img src="https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" class="product-img card-img-top" alt="MacBook Pro">
+                        <div class="card-body">
+                            <h5 class="card-title">MacBook Pro M2</h5>
+                            <p class="text-muted">14-inch, M2 chip, 16GB RAM</p>
+                            <h4 class="text-primary">₦1,250,000</h4>
+                            <button class="btn btn-primary w-100 add-to-cart" data-id="2" data-name="MacBook Pro M2" data-price="1250000">
+                                <i class="fas fa-cart-plus me-2"></i>Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="product-card card h-100">
+                        <span class="badge bg-warning text-dark badge-tag">Low Stock</span>
+                        <img src="https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" class="product-img card-img-top" alt="Samsung Galaxy S23">
+                        <div class="card-body">
+                            <h5 class="card-title">Samsung Galaxy S23 Ultra</h5>
+                            <p class="text-muted">6.8" Dynamic AMOLED 2X, 200MP camera</p>
+                            <h4 class="text-primary">₦780,000</h4>
+                            <button class="btn btn-primary w-100 add-to-cart" data-id="3" data-name="Samsung Galaxy S23 Ultra" data-price="780000">
+                                <i class="fas fa-cart-plus me-2"></i>Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="product-card card h-100">
+                        <span class="badge bg-success badge-tag">In Stock</span>
+                        <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80" class="product-img card-img-top" alt="Dell XPS 15">
+                        <div class="card-body">
+                            <h5 class="card-title">Dell XPS 15</h5>
+                            <p class="text-muted">15.6" 4K Touch, i7, 32GB RAM</p>
+                            <h4 class="text-primary">₦1,100,000</h4>
+                            <button class="btn btn-primary w-100 add-to-cart" data-id="4" data-name="Dell XPS 15" data-price="1100000">
+                                <i class="fas fa-cart-plus me-2"></i>Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Modal -->
+    <div class="modal fade" id="cartModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Your Shopping Cart</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="cartItems" class="mb-3">
+                        <!-- Cart items will be added here dynamically -->
+                        <div class="text-center py-4">
+                            <i class="fas fa-shopping-cart fa-3x text-muted mb-3"></i>
+                            <p>Your cart is empty</p>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5>Total:</h5>
+                        <h4 id="cartTotal">₦0</h4>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continue Shopping</button>
+                    <button id="checkoutBtn" type="button" class="btn btn-primary">Proceed to Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Form Modal -->
+    <div class="modal fade" id="checkoutModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Complete Your Order</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="checkoutForm">
+                        <div class="mb-3">
+                            <label for="fname" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="fname" required>
+                            <label for="lname" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="lname" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="phone" required pattern="[0-9]{11}" title="11-digit Nigeria number">
+
+                        </div>
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Delivery Address</label>
+                            <textarea class="form-control" id="address" rows="3" required></textarea>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5>Order Total:</h5>
+                            <h4 id="orderTotal">₦0</h4>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back to Cart</button>
+                    <button id="payNowBtn" type="button" class="btn btn-success">Pay Now with Paystack</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5><i class="fas fa-mobile-alt me-2"></i>Pheemyhan Gadget</h5>
+                    <p class="mt-3">Your trusted source for premium smartphones, laptops, and accessories in Nigeria.</p>
+                    <div class="social-icons">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4 mb-md-0">
+                    <h5>Shop</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Smartphones</a></li>
+                        <li><a href="#" class="text-white">Laptops</a></li>
+                        <li><a href="#" class="text-white">Accessories</a></li>
+                        <li><a href="#" class="text-white">Deals</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4 mb-md-0">
+                    <h5>Support</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Contact Us</a></li>
+                        <li><a href="#" class="text-white">FAQs</a></li>
+                        <li><a href="#" class="text-white">Shipping</a></li>
+                        <li><a href="#" class="text-white">Returns</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Newsletter</h5>
+                    <p>Subscribe for updates and special offers</p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Your email">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2023 Pheemyhan Gadget. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Paystack Inline JS -->
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    
+    <script>
+        // Cart functionality
+        let cart = [];
+        
+        // Add to cart
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                const product = {
+                    id: this.dataset.id,
+                    name: this.dataset.name,
+                    price: parseFloat(this.dataset.price),
+                    quantity: 1
+                };
+                
+                // Check if product already in cart
+                const existingItem = cart.find(item => item.id === product.id);
+                if (existingItem) {
+                    existingItem.quantity++;
+                } else {
+                    cart.push(product);
+                }
+                
+                updateCart();
+                
+                // Show success message
+                const toast = document.createElement('div');
+                toast.className = 'position-fixed bottom-0 end-0 p-3';
+                toast.innerHTML = `
+                    <div class="toast show" role="alert">
+                        <div class="toast-header bg-success text-white">
+                            <strong class="me-auto">Added to cart</strong>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
+                        </div>
+                        <div class="toast-body">
+                            ${product.name} added to your cart
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(toast);
+                setTimeout(() => toast.remove(), 3000);
+            });
+        });
+        
+        // Update cart UI
+        function updateCart() {
+            const cartItems = document.getElementById('cartItems');
+            const cartCount = document.getElementById('cartCount');
+            const cartTotal = document.getElementById('cartTotal');
+            const orderTotal = document.getElementById('orderTotal');
+            
+            // Update count
+            cartCount.textContent = cart.reduce((sum, item) => sum + item.quantity, 0);
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = `
+                    <div class="text-center py-4">
+                        <i class="fas fa-shopping-cart fa-3x text-muted mb-3"></i>
+                        <p>Your cart is empty</p>
+                    </div>
+                `;
+                cartTotal.textContent = '₦0';
+                document.getElementById('checkoutBtn').disabled = true;
+                return;
+            }
+            
+            // Update items list
+            cartItems.innerHTML = '';
+            let total = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                
+                const itemElement = document.createElement('div');
+                itemElement.className = 'cart-item d-flex justify-content-between';
+                itemElement.innerHTML = `
+                    <div>
+                        <h6>${item.name}</h6>
+                        <div class="d-flex align-items-center mt-2">
+                            <button class="btn btn-sm btn-outline-secondary change-quantity" data-id="${item.id}" data-change="-1">-</button>
+                            <span class="mx-2">${item.quantity}</span>
+                            <button class="btn btn-sm btn-outline-secondary change-quantity" data-id="${item.id}" data-change="1">+</button>
+                            <span class="ms-3 fw-bold">₦${itemTotal.toLocaleString()}</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-sm btn-danger remove-item" data-id="${item.id}">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                `;
+                cartItems.appendChild(itemElement);
+            });
+            
+            // Update totals
+            cartTotal.textContent = `₦${total.toLocaleString()}`;
+            orderTotal.textContent = `₦${total.toLocaleString()}`;
+            document.getElementById('checkoutBtn').disabled = false;
+            
+            // Add event listeners for quantity changes
+            document.querySelectorAll('.change-quantity').forEach(button => {
+                button.addEventListener('click', function() {
+                    const itemId = this.dataset.id;
+                    const change = parseInt(this.dataset.change);
+                    
+                    const item = cart.find(item => item.id === itemId);
+                    if (item) {
+                        item.quantity += change;
+                        if (item.quantity < 1) {
+                            cart = cart.filter(item => item.id !== itemId);
+                        }
+                        updateCart();
+                    }
+                });
+            });
+            
+            // Add event listeners for remove buttons
+            document.querySelectorAll('.remove-item').forEach(button => {
+                button.addEventListener('click', function() {
+                    const itemId = this.dataset.id;
+                    cart = cart.filter(item => item.id !== itemId);
+                    updateCart();
+                });
+            });
+        }
+        
+        // Checkout button
+        document.getElementById('checkoutBtn').addEventListener('click', function() {
+            const checkoutModal = new bootstrap.Modal(document.getElementById('checkoutModal'));
+            checkoutModal.show();
+        });
+        
+        // Pay with Paystack
+        document.getElementById('payNowBtn').addEventListener('click', function() {
+            const email = document.getElementById('email').value;
+            const fname = document.getElementById('fname').value;
+            const lname = document.getElementById('lname').value;
+            const amount = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0) * 100; // Convert to kobo
+            if (amount <= 0) {
+                alert('Invalid payment amount inputed');
+                return;
+            } 
+             
+            if (!email || !fname || !lname ) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            const handler = PaystackPop.setup({
+                key: 'pk_test_d191406fe464bc3bfc0ecbe10dc20f5c197ca99b', // This Paystack public key
+                email: email,
+                amount: amount,
+                currency: 'NGN',
+                ref: 'PH' + Math.floor(Math.random() * 1000000000 + 1),
+                firstname: fname,
+                lastname: lname,
+                metadata: {
+                    custom_fields: [
+                        {
+                            display_name: "Cart Items",
+                            variable_name: "cart_items",
+                            value: JSON.stringify(cart.map(item => ({
+                                name: item.name,
+                                quantity: item.quantity,
+                                price: item.price
+                            })))
+                        }
+                    ]
+                },
+                callback: function(response) {
+                    // Send payment reference to your backend for verification
+                    fetch('/api/payment/verify', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            reference: response.reference,
+                            email: email,
+                            amount: amount,
+                            items: cart
+                        })
+                    })
+                    
+                    .then(res => {
+                        console.log("Status:", res.status);  // Log HTTP status
+                        return res.json().then(data => ({ status: res.status, data }));
+                    })
+
+
+                    .then(({ status, data }) => {
+                        console.log("Full response:", { status, data });  // Debug log
+                        
+                        if (status !== 200) throw new Error(data.error || "Verification failed");
+                        
+                        alert('Payment successful! Order ID: ' + data.orderId);
+                        cart = [];
+                        updateCart();
+                        bootstrap.Modal.getInstance(document.getElementById('checkoutModal')).hide();
+                        bootstrap.Modal.getInstance(document.getElementById('cartModal')).hide();
+                    })
+
+                    
+                    .catch(err => {
+                        console.error("Verification error:", err);
+                        alert(`Payment verification failed: ${err.message}`);
+                        // Optional: Re-enable payment button here
+                        document.getElementById('payNowBtn').disabled = false;
+                    });
+
+
+                },
+                onClose: function() {
+                    alert('Payment window closed');
+                }
+            });
+            handler.openIframe();
+        });
+    </script>
+</body>
+</html>
