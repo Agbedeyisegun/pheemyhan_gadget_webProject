@@ -1,6 +1,10 @@
-const request = require('supertest');
-const app = require('../src/app'); // Adjust path as needed
-const pool = require('../config/database'); // Your DB connection
+// const request = require('supertest');
+// const app = require('../../src/app'); // Adjust path as needed
+// const pool = require('../config/database'); // Your DB connection
+import request from 'supertest';
+import app from '../src/app';
+import pool from '../config/database';
+
 
 describe('User API', () => {
   beforeAll(async () => {

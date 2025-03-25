@@ -1,8 +1,10 @@
 const request = require('supertest');
 const app = require('../app');
-const mockPaystack = require('./mocks/paystack'); // Create this mock
+// const mockPaystack = require('./mocks/paystack'); // Create this mock
+import mockPaystack from './mocks/paystack';
 
-jest.mock('../services/paystack', () => mockPaystack);
+
+jest.mock('../../services/paystack', () => mockPaystack);
 
 describe('Payment API', () => {
   it('should initialize payment', async () => {
