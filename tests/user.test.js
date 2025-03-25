@@ -1,9 +1,11 @@
 // const request = require('supertest');
 // const app = require('../../src/app'); // Adjust path as needed
 // const pool = require('../config/database'); // Your DB connection
-import request from 'supertest';
-import app from '../src/app';
-import pool from '../config/database';
+const request = require('supertest');
+const app = require('../src/app');
+const pool = require('../config/database');
+
+
 
 
 describe('User API', () => {

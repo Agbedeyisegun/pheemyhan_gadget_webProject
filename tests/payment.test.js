@@ -1,7 +1,6 @@
 const request = require('supertest');
 const app = require('../app');
-// const mockPaystack = require('./mocks/paystack'); // Create this mock
-import mockPaystack from './mocks/paystack';
+const mockPaystack = require('./mocks/paystack'); // Create this mock
 
 
 jest.mock('../../services/paystack', () => mockPaystack);
