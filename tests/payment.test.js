@@ -1,9 +1,9 @@
 const request = require('supertest');
-const app = require('../app');
-const mockPaystack = require('./mocks/paystack'); // Create this mock
+const app = require('@/app'); // Using alias
+const mockPaystack = require('./mocks/paystack');
 
-
-jest.mock('../../services/paystack', () => mockPaystack);
+// Mock the entire paystack module
+jest.mock('@/services/paystack', () => mockPaystack);
 
 describe('Payment API', () => {
   it('should initialize payment', async () => {
@@ -13,7 +13,8 @@ describe('Payment API', () => {
         email: 'test@example.com',
         amount: 5000
       });
-    expect(res.statusCode).toEqual(200);
-    expect(res.body).toHaveProperty('data.authorization_url');
+    
+    expect(res.statusCode).toBe(200);
+    expect(res.body.data).toHaveProperty('authorization_url');
   });
 });

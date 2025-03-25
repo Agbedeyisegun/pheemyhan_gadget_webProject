@@ -45,8 +45,43 @@ const verifyTransaction = async (reference) => {
     }
 };
 
+
 module.exports = {
-    initialiseTransaction,
-    verifyTransaction,
-    
-};
+    /**
+     * Initialize a Paystack transaction
+     * @param {string} email - Customer email
+     * @param {number} amount - Amount in kobo
+     * @returns {Promise<Object>} Paystack response
+     */
+    initialiseTransaction: async (email, amount) => {
+      try {
+        const response = await paystack.post('/transaction/initialize', {
+          email,
+          amount,
+          callback_url: config.paymentCallbackUrl
+        });
+        return response.data;
+      } catch (error) {
+        console.error('Paystack initialization error:', error.response?.data || error.message);
+        throw new Error('Failed to initialize payment');
+      }
+    },
+  
+    /**
+     * Verify a Paystack transaction
+     * @param {string} reference - Transaction reference
+     * @returns {Promise<Object>} Verification response
+     */
+    verifyTransaction: async (reference) => {
+      try {
+        const response = await paystack.get(`/transaction/verify/${encodeURIComponent(reference)}`);
+        return response.data;
+      } catch (error) {
+        console.error('Paystack verification error:', {
+          reference,
+          error: error.response?.data || error.message
+        });
+        throw new Error('Payment verification failed');
+      }
+    }
+  };
