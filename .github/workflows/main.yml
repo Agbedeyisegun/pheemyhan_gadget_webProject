@@ -36,13 +36,12 @@ jobs:
     - name: Run tests
       run: npm test
       env:
+        MNODE_ENV: test
+        PAYSTACK_SECRET_KEY: 'mock_key_for_testing'
         MYSQL_HOST: localhost
-        MYSQL_PORT: 3306
         MYSQL_USER: testuser
-        MYSQL_PASSWORD: ${{ secrets.TEST_DB_PASSWORD }}
+        MYSQL_PASSWORD: testpass
         MYSQL_DATABASE: testdb
-        PAYSTACK_SECRET_KEY: ${{ secrets.PAYSTACK_TEST_SECRET_KEY }}
-        NODE_ENV: test
 
   deploy:
     needs: test

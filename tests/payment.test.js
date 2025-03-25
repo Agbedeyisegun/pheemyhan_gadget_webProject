@@ -1,11 +1,18 @@
 const request = require('supertest');
-const app = require('../app'); // Make sure your app.js exports the Express app
+const app = require('../app');
+const mockPaystack = require('./mocks/paystack'); // Create this mock
+
+jest.mock('../services/paystack', () => mockPaystack);
 
 describe('Payment API', () => {
-  it('should return 404 for unknown routes', async () => {
-    const res = await request(app).get('/nonexistent-route');
-    expect(res.statusCode).toEqual(404);
+  it('should initialize payment', async () => {
+    const res = await request(app)
+      .post('/api/payments/initialize')
+      .send({
+        email: 'test@example.com',
+        amount: 5000
+      });
+    expect(res.statusCode).toEqual(200);
+    expect(res.body).toHaveProperty('data.authorization_url');
   });
-
-  // Add more tests for your payment routes
 });
