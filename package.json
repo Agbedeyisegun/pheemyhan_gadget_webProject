@@ -271,12 +271,20 @@
   "scripts": {
     "test": "jest --passWithNoTests"
   },
+
+  "jest": {
+    "testEnvironment": "node",
+    "modulePaths": ["<rootDir>"],
+    "moduleDirectories": ["node_modules", "src"],
+    "roots": ["<rootDir>/src", "<rootDir>/tests"]
+  },
+
+  
   "author": "Agbedeyi Segun Olatunde",
   "license": "ISC",
   "devDependencies": {
     "@types/jest": "^29.5.14",
     "jest": "^29.7.0",
-    "module-alias": "^2.2.3",
     "supertest": "^7.1.0"
   }
 }
